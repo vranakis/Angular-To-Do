@@ -1,0 +1,8 @@
+<button
+  *ngFor="let button of this.task; let i = index"
+  class="btn btn-primary"
+  [disabled]="this.selectedTask !== i || button.isCompleted"
+  (click)="this.doneButtonClicked(i)"
+>
+  {{ this.button.name + ' - OK' }}
+</button>

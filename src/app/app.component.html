@@ -1,0 +1,11 @@
+<div class="container">
+  <app-table [task]="this.task" (taskClicked)="this.setSelectedTask($event)"></app-table>
+  <div *ngIf="this.areAllTasksCompleted()" class="alert alert-success">
+    All the tasks are completed. You can play video games now!
+  </div>
+  <app-buttons
+    [task]="this.task"
+    [selectedTask]="this.clickedTask"
+    (taskCompleted)="this.completedTask($event)"
+  ></app-buttons>
+</div>

@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Task</th>
+      <th scope="col">Assigned To</th>
+      <th scope="col">Completed By</th>
+      <th scope="col">Completion Date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let task of this.task; let i = index"
+      [ngClass]="{ 'table-active': this.clickedTaskNumber === i && task.isCompleted === false }"
+      (click)="this.onClick(i)"
+    >
+      <th scope="row">{{ i }}</th>
+      <td>{{ task.name }}</td>
+      <td>Stathis</td>
+      <td>Stathis</td>
+      <td>2/Feb</td>
+      <td>
+        <ng-template #elseTemplate>To do</ng-template
+        ><ng-container *ngIf="task.isCompleted; else elseTemplate">Done!</ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>
